@@ -72,6 +72,9 @@
   }
 
   footer {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.18);
+
     @include background(hsl(193, 64%, 80%));
     position: fixed;
     bottom: 0;
