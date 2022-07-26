@@ -32,7 +32,7 @@
   //   return () => subscription.unsubscribe();
   // });
 
-  const padding = { top: 20, right: 15, bottom: 40, left: 15 };
+  const padding = { top: 20, right: 15, bottom: 60, left: 15 };
 
   $: xs = dataset.points.map((p) => p.x);
   $: ys = dataset.points.map((p) => p.y);
@@ -60,13 +60,12 @@
   bind:clientHeight={chartHeight}
 >
   <svg
-    viewBox="{0} {0} {chartWidth + padding.right} {chartHeight +
-      padding.bottom +
-      16}"
+    viewBox="{-padding.left} {-padding.top} {chartWidth +
+      padding.right} {chartHeight + padding.bottom}"
   >
     {#if isData}
       <!-- y axis -->
-      <g class="axis y-axis">
+      <g class:y-axis={true}>
         {#each yTicks as tick, i}
           {#if i == 0}
             <g
@@ -79,13 +78,40 @@
         {/each}
       </g>
 
+      <!-- x axis -->
+      <g class:x-axis={true}>
+        {#each xs as x, i}
+          <g
+            class="tick"
+            transform="translate({barWidth / 2 + xScale(i)},{chartHeight -
+              padding.top})"
+          >
+            <text
+              class:chart-labels={true}
+              style:fill="black"
+              style:font-size={"15px"}
+              style:font-weight={"bold"}
+              color="white">{x}</text
+            >
+          </g>
+        {/each}
+        <text
+          class:chart-labels={true}
+          style:fill="black"
+          style:font-size={"15px"}
+          x={chartWidth / 2}
+          y={chartHeight - padding.top + padding.bottom / 2}
+          >{`${dataset.variableNames.x} `} {`(${dataset.units.x})`}</text
+        >
+      </g>
+
       <g class="bars">
         {#each dataset.points as { x, y, yType, yAlt }, i}
           <rect
             style:--bar-bg-color={dataset.meta.color}
-            x={xScale(i) + 12}
+            x={xScale(i)}
             y={yScale(y)}
-            width={barWidth - 12}
+            width={barWidth}
             height={yScale(0) - yScale(y)}
           />
 
@@ -98,6 +124,7 @@
               text-anchor="middle"
               class:chart-labels={true}
               style:fill="white"
+              style:font-size={"15px"}
             >
               {#if yType === "enumeration"}
                 {`${yAlt} ${dataset.units.y}`}
@@ -109,41 +136,6 @@
             </text>
           </g>
         {/each}
-      </g>
-
-      <!-- x axis -->
-      <g class="axis x-axis">
-        {#each xs as x, i}
-          <g
-            class="tick"
-            transform="translate({xScale(i)},{chartHeight -
-              padding.bottom +
-              14})"
-          >
-            <text
-              class:chart-labels={true}
-              style:fill="black"
-              x={barWidth / 2}
-              y={12}
-              color="white">{x}</text
-            >
-          </g>
-        {/each}
-        <line
-          x1="0"
-          y1={chartHeight - padding.bottom}
-          x2={chartWidth}
-          y2={chartHeight - padding.bottom}
-          stroke="#fff"
-          stroke-width="0.3"
-        />
-        <text
-          class:chart-labels={true}
-          style:fill="black"
-          x={chartWidth / 2}
-          y={chartHeight + 6}
-          >{`${dataset.variableNames.x} `} {`(${dataset.units.x})`}</text
-        >
       </g>
     {:else}
       <rect
@@ -158,7 +150,8 @@
         x={chartWidth / 2}
         y={chartHeight / 2}
         text-anchor="middle"
-        style="font-size: 12px;"
+        style:font-size={"15px"}
+        style:font-weight={"bold"}
       >
         No data available
       </text>
@@ -232,6 +225,7 @@
     margin: 0 auto;
   }
   svg {
+    /* background-color: yellow; */
     position: relative;
     width: 100%;
     height: 100%;
@@ -243,7 +237,6 @@
       font-family: $acumin-pro-semi-condensed;
       pointer-events: none;
       font-size: medium;
-      font-size: 16px;
       text-anchor: middle;
 
       &[data-bar-text="true"] {
