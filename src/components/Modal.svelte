@@ -105,8 +105,10 @@
   }
   .content-wrapper {
     z-index: 10;
-    max-width: 80vw;
-    max-height: 80vh;
+    max-width: 90%;
+    max-height: 90%;
+    height: calc(min(70vh, 70vw));
+    width: calc(min(70vh, 70vw) * 16 / 9);
     border-radius: 0.3rem;
     overflow: hidden;
     aspect-ratio: 16/9;

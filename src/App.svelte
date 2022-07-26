@@ -21,7 +21,7 @@
 
 <Global>
   <PageTransition>
-    <Route>
+    <Route path="/*" firstmatch>
       <Route path="/" fallback>
         <Stack>
           <Header slot="header" variant="mininal" />

@@ -16,7 +16,9 @@
   }
   .container {
     width: 100%;
+    max-width: 100vw;
     height: 100%;
+    max-height: 100vh;
   }
 
   /* @-webkit-keyframes fade-in {

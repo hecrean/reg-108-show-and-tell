@@ -16,7 +16,7 @@
   bind:clientHeight={height}
 >
   <div class:central-grid-col={true}>
-    <div class="flex-col" class:fade-in={true}>
+    <div class="flex-col" class:fade-in={false}>
       <div class:button-layout={true}>
         <Modal>
           <svelte:fragment slot="trigger" let:toggle>
