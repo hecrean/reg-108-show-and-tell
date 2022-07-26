@@ -1,0 +1,63 @@
+<!-- Transition.svelte -->
+<script>
+  import { router } from "tinro";
+</script>
+
+{#key $router.path}
+  <div class:page-transition={false} class:container={true}>
+    <slot />
+  </div>
+{/key}
+
+<style lang="scss">
+  .page-transition {
+    animation: fade-in 0.6s ease-in-out;
+    -webkit-animation: fade-in 0.8s linear forwards;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* @-webkit-keyframes fade-in {
+    0% {
+      filter: brightness(0%);
+    }
+    20% {
+      filter: brightness(20%);
+    }
+    40% {
+      filter: brightness(40%);
+    }
+    60% {
+      filter: brightness(60%);
+    }
+    80% {
+      filter: brightness(80%);
+    }
+    100% {
+      filter: brightness(100%);
+    }
+  } */
+
+  @keyframes fade-in {
+    0% {
+      filter: brightness(20%);
+    }
+    20% {
+      filter: brightness(30%);
+    }
+    40% {
+      filter: brightness(40%);
+    }
+    60% {
+      filter: brightness(60%);
+    }
+    80% {
+      filter: brightness(80%);
+    }
+    100% {
+      filter: brightness(100%);
+    }
+  }
+</style>
