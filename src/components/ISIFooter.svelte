@@ -72,6 +72,7 @@
   }
 
   footer {
+    z-index: 99;
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.18);
 

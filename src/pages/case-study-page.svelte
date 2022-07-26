@@ -87,17 +87,6 @@
   @import "../styles/color";
   @import "../styles//typography";
 
-  @mixin background($bg) {
-    background: $bg;
-    &:hover {
-      filter: brightness(85%);
-      transition: background 0.3s ease;
-    }
-    &:active {
-      filter: brightness(85%);
-    }
-  }
-
   // add pulsing transition
   progress {
     border-bottom: 1px red;
@@ -138,36 +127,28 @@
     // }
   }
 
-  @mixin square($width, $color) {
-    width: $width;
-    height: $width;
-    background: $color;
-  }
-
   .icon-button {
-    &[data-active="true"] {
-      @include square(60px, rgb(203, 213, 225));
-    }
-    &[data-active="false"] {
-      @include square(60px, rgb(162, 171, 187));
-    }
-  }
-  .icon-svg {
-    padding: 4px;
-    width: 100%;
-    height: 100%;
-  }
-
-  button {
+    width: 80px;
+    height: 80px;
     font-family: $acumin-pro-condensed;
-
     font-size: small;
-    @include background(rgba(white, 0.6));
-    color: rgb(152, 146, 145);
+    color: $eylea-blue;
+
+    background-color: $light-blue-accent;
+
+    &:hover {
+      background: white;
+      /* filter: brightness(85%); */
+      transition: background-color 0.3s ease;
+    }
+    &:active {
+      /* filter: brightness(85%); */
+      background-color: white;
+    }
 
     &[data-active="true"] {
-      @include background(hsl(202, 100%, 21%));
-      color: rgb(241, 245, 249);
+      background-color: white;
+      color: $eylea-blue;
     }
 
     border: none;
@@ -183,5 +164,10 @@
     strong {
       padding: 2px;
     }
+  }
+  .icon-svg {
+    padding: 4px;
+    width: 100%;
+    height: 100%;
   }
 </style>

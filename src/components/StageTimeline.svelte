@@ -72,6 +72,7 @@
 
 <style lang="scss">
   @import "../styles/typography";
+  @import "../styles//color";
 
   $white: white;
   $light-blue: hsl(202, 100%, 21%);
@@ -86,7 +87,6 @@
     font-size: small;
     font-weight: bold;
     text-transform: uppercase;
-    margin: 1rem;
     padding: 1rem;
     background-color: rgba($white, 0.4);
     border-radius: 10px;
@@ -102,8 +102,10 @@
     padding: 0rem 8px;
     width: 100%;
     height: 100%;
-    color: $light-blue;
+    color: $eylea-blue;
+    text-transform: uppercase;
     background-color: transparent;
+    font-weight: bold;
     border: none;
     cursor: pointer;
 
@@ -158,13 +160,13 @@
     }
 
     &:hover {
-      background-color: $light-blue;
+      background-color: white;
       transition: background-color 0.1s linear 0s;
     }
 
     &[data-moveable] {
       transition: background-color 0.1s linear 0s;
-      background-color: $light-blue;
+      background-color: white;
       z-index: 20;
     }
   }
