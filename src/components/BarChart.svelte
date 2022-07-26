@@ -111,7 +111,7 @@
             style:--bar-bg-color={dataset.meta.color}
             x={xScale(i)}
             y={yScale(y)}
-            width={barWidth}
+            width={barWidth - 1}
             height={yScale(0) - yScale(y)}
           />
 
