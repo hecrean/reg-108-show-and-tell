@@ -100,10 +100,14 @@
           <Token bgColor={caseStudy.colorId} tag={view} crossShown={false} />
           <Token bgColor={caseStudy.colorId} tag={stage} crossShown={false} />
         </p> -->
-        <h4>{view} at {sanitiseStageString(stage)}</h4>
-        <p>
-          {label}
-        </p>
+        <div class="chart-grid" data-layout={dashboardBreakpoint}>
+          <h3 class:chart-title={true} style:text-transform={"uppercase"}>
+            {view} at {sanitiseStageString(stage)}
+          </h3>
+          <p>
+            {label}
+          </p>
+        </div>
       </svelte:fragment>
       <svelte:fragment slot="slot-0">
         <FlexboxRows rows={baselineCharaceristicsArray} />

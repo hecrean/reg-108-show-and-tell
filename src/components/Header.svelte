@@ -62,6 +62,17 @@
           router.goto("/case-studies");
         }}>CASE STUDIES</button
       >
+
+      <Modal>
+        <svelte:fragment slot="trigger" let:toggle>
+          <button class:header-button={true} on:click={() => {}}>
+            REFERENCES</button
+          >
+        </svelte:fragment>
+        <div slot="content">
+          <h1>References</h1>
+        </div>
+      </Modal>
     {/if}
   </div>
 </div>
@@ -117,7 +128,7 @@
   }
   .eylea-logo-image {
     max-height: $header-height;
-    padding: 15px;
+    padding: 8px;
   }
 
   .header-button {

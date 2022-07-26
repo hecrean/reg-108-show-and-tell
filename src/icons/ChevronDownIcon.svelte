@@ -34,19 +34,19 @@
   svg {
     &[data-direction="down"] {
       transform: rotate(0);
-      transition: 0.8s transform ease;
+      transition: 0.25s transform ease;
     }
     &[data-direction="left"] {
       transform: rotate(90deg);
-      transition: 0.8s transform ease;
+      transition: 0.25s transform ease;
     }
     &[data-direction="up"] {
       transform: rotate(180deg);
-      transition: 0.8s transform ease;
+      transition: 0.25s transform ease;
     }
     &[data-direction="right"] {
       transform: rotate(-90deg);
-      transition: 0.8s transform ease;
+      transition: 0.25s transform ease;
     }
   }
 </style>

@@ -4,8 +4,6 @@
 
 <!-- https://svelte.dev/repl/5fc4b5dd5dec49d2be3fa160693372ce?version=3.31.0 -->
 <script lang="ts">
-  import { fade } from "svelte/transition";
-
   type $$Props = {
     stage: StageADT;
   };
@@ -14,39 +12,57 @@
 
 <div class={"container"}>
   <div class={"timeline"}>
-    <div
+    <!-- <div
       class:start={stage === "baseline"}
       class:middle={stage === "week24"}
       class:end={stage === "week52"}
       data-stage={stage}
     >
-      <div class={"dot"} data-moveable in:fade out:fade />
-    </div>
+      <div style:opacity={0.8} class:dot={true} data-moveable in:fade out:fade />
+    </div> -->
 
     <hr class={"hr"} />
 
-    <div class={"start"}>
-      <button class={"dot"} on:click={() => (stage = "baseline")} />
+    <div class:start={true}>
+      <button
+        class:dot={true}
+        on:click={() => (stage = "baseline")}
+        data-active={stage === "baseline"}
+      >
+        <img class:svg-icon={true} src="./icons/baseline.svg" />
+      </button>
     </div>
-    <div class={"middle"}>
-      <button class={"dot"} on:click={() => (stage = "week24")} />
+    <div class:middle={true}>
+      <button
+        class:dot={true}
+        on:click={() => (stage = "week24")}
+        data-active={stage === "week24"}
+      >
+        <img class:svg-icon={true} src="./icons/week24.svg" />
+      </button>
     </div>
-    <div class={"end"}>
-      <button class={"dot"} on:click={() => (stage = "week52")} />
+    <div class:end={true}>
+      <button
+        class:dot={true}
+        on:click={() => (stage = "week52")}
+        data-active={stage === "week52"}
+      >
+        <img class:svg-icon={true} src="./icons/week52.svg" />
+      </button>
     </div>
   </div>
   <div class={"timeline"}>
-    <div class={"start"}>
+    <div class:start={true}>
       <button class={"button"} on:click={() => (stage = "baseline")}>
         <span>Baseline</span>
       </button>
     </div>
-    <div class={"middle"}>
+    <div class:middle={true}>
       <button class={"button"} on:click={() => (stage = "week24")}>
         <span>24 Weeks</span>
       </button>
     </div>
-    <div class={"end"}>
+    <div class:end={true}>
       <button class={"button"} on:click={() => (stage = "week52")}>
         <span>52 Weeks</span>
       </button>
@@ -90,9 +106,15 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+
     // &:hover {
     //   color: $light-blue-accent;
     // }
+  }
+
+  .svg-icon {
+    width: 100%;
+    height: 100%;
   }
 
   .timeline {
@@ -130,6 +152,10 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.1s linear 0s;
+
+    &[data-active="true"] {
+      background-color: white;
+    }
 
     &:hover {
       background-color: $light-blue;

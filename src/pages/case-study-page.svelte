@@ -58,10 +58,18 @@
   >
     <OverlayLayout slot="canvas-overlay" let:progress>
       <StageTimeline slot="foreground-top" bind:stage />
-      <div class="view-btns-container" slot="foreground-bottom">
+      <div class:view-btns-container={true} slot="foreground-bottom">
         {#each views as v}
-          <button on:click={() => (view = v)} data-active={view === v}>
-            <div class={"circle"} data-active={view === v} />
+          <button
+            class:icon-button={true}
+            on:click={() => (view = v)}
+            data-active={view === v}
+          >
+            <img
+              class:icon-svg={true}
+              src={`./icons/${v}.svg`}
+              data-active={view === v}
+            />
             <strong>{v}</strong>
           </button>
         {/each}
@@ -119,9 +127,10 @@
   .view-btns-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     width: 100%;
+    height: 100%;
 
     // &:not(:hover) {
     //   transition: all 0.2s;
@@ -129,22 +138,24 @@
     // }
   }
 
-  @mixin circle($width, $color) {
+  @mixin square($width, $color) {
     width: $width;
     height: $width;
     background: $color;
-    -webkit-border-radius: math.div($width, 2);
-    -moz-border-radius: math.div($width, 2);
-    border-radius: math.div($width, 2);
   }
 
-  .circle {
+  .icon-button {
     &[data-active="true"] {
-      @include circle(60px, rgb(203, 213, 225));
+      @include square(60px, rgb(203, 213, 225));
     }
     &[data-active="false"] {
-      @include circle(60px, rgb(162, 171, 187));
+      @include square(60px, rgb(162, 171, 187));
     }
+  }
+  .icon-svg {
+    padding: 4px;
+    width: 100%;
+    height: 100%;
   }
 
   button {

@@ -81,7 +81,7 @@
     color: grey;
     overflow-y: scroll;
     @include hide-scrollbar();
-    transition: 0.6s transform ease;
+    transition: 0.25s transform ease;
     width: 100%;
     padding: 1rem 1.5rem;
     font-size: smaller;

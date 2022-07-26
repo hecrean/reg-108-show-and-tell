@@ -124,8 +124,8 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    // overscroll-behavior: none;
     touch-action: none;
+    overscroll-behavior-y: none;
   }
 
   body {

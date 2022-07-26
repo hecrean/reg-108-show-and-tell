@@ -82,7 +82,7 @@
   }
   .heading-container {
     position: relative;
-    border-bottom: 2px solid $grey-800;
+    /* border-bottom: 2px solid $grey-800; */
   }
   .content {
     flex-grow: 1;

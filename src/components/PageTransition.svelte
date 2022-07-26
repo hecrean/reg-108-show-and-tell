@@ -15,10 +15,12 @@
     -webkit-animation: fade-in 0.8s linear forwards;
   }
   .container {
-    width: 100%;
-    max-width: 100vw;
-    height: 100%;
-    max-height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overscroll-behavior-y: none;
   }
 
   /* @-webkit-keyframes fade-in {

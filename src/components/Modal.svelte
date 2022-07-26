@@ -50,7 +50,7 @@
 
 <slot name="trigger" {open} {toggle}>
   <!-- fallback trigger to open the modal -->
-  <button on:click={open}>Open</button>
+  <!-- <button on:click={open}>Open</button> -->
 </slot>
 {#if $isOpen}
   <div class="modal" use:modalAction tabindex="0">

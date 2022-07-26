@@ -237,7 +237,7 @@
     height: 100%;
 
     rect {
-      @include hover-svg($teal);
+      /* @include hover-svg($teal); */
     }
     text {
       font-family: $acumin-pro-semi-condensed;

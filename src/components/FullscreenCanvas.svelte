@@ -93,6 +93,7 @@
     );
 
     const wheelSub = wheel$.subscribe(({ event }) => {
+      event.stopPropagation();
       api.dolly(0.0005 * event.deltaY);
     });
 
@@ -179,7 +180,7 @@
     box-sizing: border-box;
     background-color: transparent;
     overflow: hidden;
-    overscroll-behavior: none;
+    overscroll-behavior: contain;
     user-select: none;
 
     &[data-fullscreen="true"] {
@@ -190,6 +191,7 @@
       user-select: none;
       overflow: hidden;
       transition: width 1s ease-in-out;
+      overscroll-behavior: contain;
     }
   }
   .canvas-overlay {
@@ -208,7 +210,6 @@
     width: 100%;
     box-sizing: border-box;
     touch-action: none;
-    overscroll-behavior: none;
 
     cursor: grab;
     &:active {
