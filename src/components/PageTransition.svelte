@@ -11,8 +11,8 @@
 
 <style lang="scss">
   .page-transition {
-    animation: fade-in 0.6s ease-in-out;
-    -webkit-animation: fade-in 0.8s linear forwards;
+    animation: fade-in 0.3s ease-in-out;
+    -webkit-animation: fade-in 0.3s linear forwards;
   }
   .container {
     position: absolute;
@@ -23,42 +23,18 @@
     overscroll-behavior-y: none;
   }
 
-  /* @-webkit-keyframes fade-in {
+  @-webkit-keyframes fade-in {
     0% {
       filter: brightness(0%);
-    }
-    20% {
-      filter: brightness(20%);
-    }
-    40% {
-      filter: brightness(40%);
-    }
-    60% {
-      filter: brightness(60%);
-    }
-    80% {
-      filter: brightness(80%);
     }
     100% {
       filter: brightness(100%);
     }
-  } */
+  }
 
   @keyframes fade-in {
     0% {
-      filter: brightness(20%);
-    }
-    20% {
-      filter: brightness(30%);
-    }
-    40% {
-      filter: brightness(40%);
-    }
-    60% {
-      filter: brightness(60%);
-    }
-    80% {
-      filter: brightness(80%);
+      filter: brightness(0%);
     }
     100% {
       filter: brightness(100%);

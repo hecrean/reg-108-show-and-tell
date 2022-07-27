@@ -1,9 +1,5 @@
 <script lang="ts">
-  //assets:
   import Modal from "@/components/Modal.svelte";
-  //Actions
-  //Transitions
-
   import { router } from "tinro";
 
   type HeaderVariant = "mininal" | "full-fat";
@@ -121,14 +117,13 @@
   }
 
   .eylea-logo-home-button {
-    margin: 0px calc($header-height / 3);
     height: 100%;
 
     @include hover-svg(hsl(193, 64%, 80%));
   }
   .eylea-logo-image {
     max-height: $header-height;
-    padding: 8px;
+    padding: 8px 8px 8px 0px;
   }
 
   .header-button {
@@ -136,21 +131,26 @@
     font-weight: bold;
     border: none;
     background-color: transparent;
-    font-family: inherit;
     cursor: pointer;
     /* push towards baseline in y direction*/
     align-self: flex-end;
 
     border-radius: 10px 10px 0 0; /* top-left top-right bottom-right bottom-left.*/
     border-color: none;
-    padding: 0.25em 0.75em;
-    margin: 0 0.5rem;
-    width: 220px;
+    padding: 5px 15px;
+    margin: 0 5px;
     min-width: 140px;
     min-height: 44px;
-    /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18); */
     text-align: center;
     line-height: 1.1;
+
+    @include respond-below(sm) {
+      min-width: 40px;
+
+      margin: 0 1px;
+      font-size: small;
+      padding: 5px 5px;
+    }
 
     @include explicit-background(rgb(19, 68, 107), rgb(86, 145, 171));
     color: white;
@@ -160,8 +160,14 @@
     display: flex;
     flex-direction: row;
     justify-items: flex-end;
-    min-width: min(700, 70vw);
+    min-width: min(700px, 70vw);
     max-width: 75vh;
+
+    @include respond-below(sm) {
+      width: 100%;
+    }
+    @include respond-above(sm) {
+    }
   }
 
   .spacer {

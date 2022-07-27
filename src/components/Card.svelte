@@ -147,7 +147,8 @@
 
   .table-row {
     margin: 5px 0;
-    @include background(hsl(0, 0%, 100%));
+    background: hsl(0, 0%, 100%);
+
     border-radius: 10px;
     border: none;
     min-height: 2rem;

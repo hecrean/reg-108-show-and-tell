@@ -58,7 +58,7 @@ const mapMetricKeyToUnits = (
     case "DRSS":
       return "";
     case "EDTRS":
-      return "";
+      return "%";
     case "NPDR_grading":
       return "";
     case "snellen_equivalent":

@@ -19,7 +19,6 @@ type StageADT = "baseline" | "week24" | "week52";
 type ViewADT = "fundus" | "oct" | "fa";
 type Hotspot = {
   label: string;
-  pointerType: "circle";
   worldspaceCoordinates: Vector3;
   labelOffset: OffsetDirection;
   labelLength: `${number}px`;

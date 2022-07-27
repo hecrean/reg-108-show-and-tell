@@ -22,10 +22,10 @@
     overflow-x: hidden;
   }
   aside {
+    position: absolute;
     padding: 50px 0 80px 0;
     right: -100vw;
     transition: right 0.3s ease-in-out;
-    position: absolute;
     background-color: #e5e7eb;
     width: 100%;
     height: 100%;
